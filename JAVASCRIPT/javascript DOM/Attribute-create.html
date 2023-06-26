@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attribute</title>
+</head>
+<body>
+
+    <img id="logo">
+    <script>
+      const logo = document.getElementById('logo'); // dapetkkan element img
+      // const src = document.createAttribute("src"); // create key src
+      // src.value = "/picture/iphone.jpg"; // mengisi key src dengan value
+
+     //  logo.setAttributeNode(src); // menggabungkan element img dengan key and value
+     // ATAU
+     logo.setAttribute('src','./picture/iphone.jpg');
+    </script>
+</body>
+</html>

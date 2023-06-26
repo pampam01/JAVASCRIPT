@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>export default</title>
+</head>
+<body>
+    <script type="module">
+        // fitur export default adalah fiur yang digunakan untuk mempermudah untuk membuat default data dimodule
+        // agar membantu javascript agar kompitabel dengan commonJS dan AMD module system
+
+        //CARA EXPORT DEFAULT;
+         // export default namaFunction
+         // export default function(){}
+         // export default namavariabel
+         // export default nama variabel = value
+         // export default nama class
+         // export default NamaClass
+         // export dfault class{..}
+
+         //CARA IMPORT DEFAULT
+         //import aliasFunction from "./module-default.js"
+         //import {default as aliasFunction} from "./module-default.js"
+         //import aliasVariabel from "./module-default.js"
+         //import {default as aliasVariabel} from "./module-default.js"
+         //import aliasClass from "./module-default.js"
+         //import {default as AliasClass} from "./module-default.js"
+
+
+
+        import functionDefault from "./script/defaultFunction.js";
+        //import nama from "./script/defaultVariabel.js";
+        import {default as nama} from "./script/defaultVariabel.js";
+        import ClassDefault from "./script/defaultClass.js";
+
+        functionDefault('JOKO');
+        console.log(nama)
+        const person = new ClassDefault("pampam");
+        person.halo("jokowi");
+    </script>
+</body>
+</html>

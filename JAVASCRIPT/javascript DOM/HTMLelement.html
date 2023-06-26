@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html element</title>
+</head>
+<body>
+    <a id="link"></a>
+    <script>
+        // element merupakan representasi dari DOM
+        // namun saat menggunakan html, implementsi detailnya sebenarnya adalah html element, yaitu turunan dari element
+        const link = document.getElementById('link');
+        link.href = "./picture/iphone.jpg";
+        link.target = "_blank";
+        link.textContent = "pampam prayitno";
+    </script>
+</body>
+</html>

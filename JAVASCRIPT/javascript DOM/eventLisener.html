@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event target</title>
+    <style>
+        .blue{
+            background-color: blue;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    
+    <input type="button" value="clickMe">
+    <script>
+        // target event
+        const btn = document.getElementsByTagName('input')[0];
+        btn.addEventListener('click', function (){
+           btn.setAttribute("value", "button has been clicked");
+        })
+        btn.addEventListener('click', function(){
+            btn.classList.toggle('blue');
+        })
+    </script>
+</body>
+</html>

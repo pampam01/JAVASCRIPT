@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>multiple class</title>
+</head>
+<body>
+    <script type="module">
+        import {company, sum, Company} from "./script/exportMultiple.js";
+
+        console.log(company);
+        console.log(sum(10, 10));
+
+        const perusahaan = new Company("bank bca", 1990);
+        perusahaan.data();
+    </script>
+</body>
+</html>

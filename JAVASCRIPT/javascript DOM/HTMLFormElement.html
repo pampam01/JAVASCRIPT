@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html form element</title>
+</head>
+<body>
+    <form name="commentForm">
+        <label for="comment">
+            Comment : <input type="text" id="comment" name="comment">
+        </label>
+        <br>
+        <label for="from">
+            From : <input type="text" id="from" name="from">
+        </label>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+    <div id="commentList"></div>
+
+    <script>
+       /* let form = document.querySelector('form[name=commentForm]');
+        form.addEventListener("submit", function(event){
+            const commentList = document.getElementById('commentList');
+            const comment = document.getElementById('comment').value;
+            const from = document.getElementById('from').value;
+
+            const connectItem = document.createElement("p");
+            connectItem.textContent = `${comment} - ${from}`;
+            commentList.appendChild(connectItem);
+
+            document.forms['commentForm'].reset();
+
+            event.preventDefault();
+        }) */
+
+        // KODE ISTIMEWA FORM
+        // kita bisa memanggil form menggunakan namanya.
+        document.forms['commentForm'].onsubmit = function(event){
+            event.preventDefault();
+            const commentList = document.getElementById('commentList');
+            const comment = document.forms['commentForm']['comment'].value;
+            const from = document.forms['commentForm']['from'].value;
+            
+            const connectItem = document.createElement('p');
+            connectItem.textContent = `${comment} - ${from}`;
+            commentList.appendChild(connectItem);
+
+            document.forms['commentForm'].reset();
+        } 
+    </script>
+</body>
+</html>

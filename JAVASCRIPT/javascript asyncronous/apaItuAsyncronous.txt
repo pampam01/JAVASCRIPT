@@ -1,0 +1,6 @@
+secara default javascript bersifat syncronous, yaitu pengerjaan kode dari atas kebawah secara satu satu
+proses syncrhonous juga disebut blocking, karena harus menunggu tiap proses selesai, baru proses selanjutnya bisa dilakukan
+
+asynchronous dalam javascript berarti javascript tidak akan menunggu proses tersebut selesai, melainkan javascript akan melanjutkan
+baris berikutnya, tanpa harus menunggu proses asynchronous selesai\
+proses asynchronous juga disebut non-blocking

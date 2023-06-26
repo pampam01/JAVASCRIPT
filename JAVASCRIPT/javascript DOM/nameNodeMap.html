@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>name node map</title>
+</head>
+<body>
+    <img src="./picture/iphone.jpg" alt="PZN logo" srcset="">
+    <script>
+        //NameNodeMap merupakan kkumpulan dari attr/atrribute
+        // mirip seperti NodeList, namun isinya adalah attr
+
+        const logo = document.querySelector('img');
+        const attribute = logo.attributes;
+       console.log(attribute.getNamedItem('src'));
+        for(let aribut of attribute){
+            console.log(`${aribut.name} : ${aribut.value}`);
+        }
+
+    </script>
+</body>
+</html>

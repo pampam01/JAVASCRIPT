@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>module object</title>
+</head>
+<body>
+    <script type="module">
+        // ketika sebuah module berisikan banyak sekali export daa, maka melakukan import satu persatu akan terlihat berantakan
+        // rekomndasinya ketika kita ingin mengimport module yang sangat banyak export datanya, gunakan module object
+        // module object sederhananya adalah object javascript yang berisi atribute hasil yang di export pada module
+        // cara membuat module object bisa kita lakuka misal:
+        // import "asNamaModuleFrom"./module.js
+        // selanjutnya kita bisa gunakan NamaModule sebagai object untuk module tersebut
+
+        import * as pampam from "./script/moduleObject.js";
+        console.log(pampam.firstName);
+        console.log(pampam.middleName);
+        console.log(pampam.lastName);
+
+        pampam.hello();
+
+        const person = new pampam.Person("pampam S.Kom", 19);
+        console.log(person.name);
+        console.log(person.age);
+
+        
+
+
+
+    </script>
+</body>
+</html>

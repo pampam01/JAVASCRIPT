@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // promise merupakan proxy untuk sebuah nilai dimasa depan(future) yang belum diketahui saat pembuatan promise tersebut
+        // biasa promise digunakan sebagai proxy untuk proses async 
+
+        // didalam promise ada 3 state
+        // pending, fullfield(janji ditepati), rejected(janji diingkari
+
+        // promise dibuat untuk menghindari terjadinya callback hell
+       /* const promise = new Promise(function(resolve, rejected){
+            resolve("sukses");
+            rejected("gagal")
+        });*/
+        const promise = new Promise(function(resolve, rejected){
+            const ajax = new XMLHttpRequest();
+
+            ajax.open("GET","api/product.json");
+            ajax.addEventListener("load", function(){
+                if(ajax.status === 200){
+                    resolve(JSON.parse(ajax.responseText));
+                }
+                else{
+                    rejected(`Eerror get product with response : ${ajax.responseText}`);
+                }
+            })
+            ajax.send();
+        })
+        console.log(promise);
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dinamic module loading</title>
+</head>
+<body>
+    <input type="text" id="name">
+    <input type="button" value="say" id="sayButton">
+    <script type="module">
+
+        let button = document.getElementById('sayButton');
+        button.addEventListener('click', function(){
+            const name = document.getElementsByTagName('input')[0].value;
+            import("./script/dinamicModuleLoading.js").then(module => module.showAlert(name))
+        })
+       // import {showAlert as alertHelo} from "./script/dinamicModuleLoading.js";
+    </script>
+</body>
+</html>

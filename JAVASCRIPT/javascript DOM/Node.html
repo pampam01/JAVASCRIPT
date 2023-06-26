@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>node</title>
+</head>
+<body>
+    <ul id="menu">
+        <li id="first">first</li>
+        <li id="second">seond</li>
+        <li id="third">third</li>
+    </ul>
+
+    <script>
+        // Node adalah base clsss dari  Document, Element dan Atrr
+        // arinya semua fitur di node dimiliki turunannya
+        // NODE dalam DOM itu bentuknya adalah tree,(pohon)
+        // artinya dengan node kita bisa melihat parent(class diatasnya), children(class dibawahnya), sibling(node setelahnya)
+        const menu = document.getElementById("menu");
+        console.log(menu);
+        
+
+        const first = document.getElementById("first");
+        console.log(first);
+
+        const second = document.querySelector('#second');
+
+        // node banyak sekali property
+        console.log(menu.childNodes);
+        console.log(first.textContent);
+        console.log(second.previousSibling.previousSibling);
+        console.log(second.nextSibling.nextSibling);// spasi juga diihitung
+        console.log(second.previousElementSibling); // spasi diabaikan
+        console.log(second.nextElementSibling);
+
+        // Node juga memiliki banyak sekali method. anda bisa mempelajarinya sendiri, berikut beberapa contohnya
+
+        console.log(menu.removeChild(second));
+    </script>
+</body>  
+</html>

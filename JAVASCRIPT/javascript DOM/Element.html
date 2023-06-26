@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>element</title>
+</head>
+<body>
+    <h1 id="title"></h1>
+    <p id="description"></p>
+
+    <div id="content" class="content">
+        <h1 id="title" class="title">this is title</h1>
+        <p id="deskripsi" class="description">this is description</p>
+    </div>
+    <div class="newelement"></div>
+    <script>
+        // element merupakan Node yang berbentuk elemen, biasanya adalah element html misal <html>, <head>, <div> dsb
+        const title = document.getElementsByTagName("h1")[0];
+        const p = document.querySelector("#description");
+
+        title.textContent = "belajar javascript DOM";
+        p.innerHTML = "sama aja, cuma rasa jeruk";
+
+        // ellement banyak sekali propertynya. cari sendiri, dikursus disuruh cari dewek
+        const content = document.getElementsByClassName("content")[0];
+        console.log(content.id);
+        console.log(content.className);
+        console.log(content.tagName);
+
+        // element memiliki bannyak sekali method, cari sendiri sisanya disuruh kursus
+        const deskripsi = document.querySelector(".description");
+        deskripsi.remove();
+
+        // kita juga bisa embuat objeck element baru, dan menambahkan ke halaman web
+        let newElement = document.querySelector('.newelement');
+        let judul = document.createElement('h1');
+        judul.textContent = " ini judul dari javascript";
+        newElement.appendChild(judul);
+
+        let isi = document.createElement('p');
+        let text = document.createTextNode(" ini deskripsi yang berasal dari javvascript");
+        isi.appendChild(text);
+        newElement.appendChild(isi);
+    </script>
+</body>
+</html>

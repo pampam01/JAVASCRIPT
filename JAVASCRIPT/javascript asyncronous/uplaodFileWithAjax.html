@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>upload file with ajax </title>
+</head>
+<body>
+    <form>
+        <label for="username">
+            Username :
+            <input type="text" name="username" id="username">
+        </label>
+        <br>
+        <label for="name">
+            Name :
+            <input type="text" name="name" id="name">
+        </label>
+        <br>
+        <label for="profile">
+            Profile: 
+            <input type="file" name="profile" id="profile">
+        </label>
+        <br>
+        <input type="button" id="register" value="register">
+    </form>
+    <h1 id="response"></h1>
+    <script>
+        // selain mmenggunakan JSON,queryParams, form, kadang kia buuh mengirim file keserver
+        // untuk mengirim file ke server, kita perlu menggunakan object form Data
+        // lalu kita perlu menambahkan object file kedalam formData tersebut
+        function doLogin(){
+            const ajax = new XMLHttpRequest();
+            ajax.open("POST", "https://eo8qojlg8u75ofm.m.pipedream.net");
+
+            ajax.addEventListener("load", function(){
+                const response = document.getElementById("response");
+                response.innerText = ajax.responseText;
+            })
+
+            const form = new FormData();
+            form.append("username", document.getElementById("username").value);
+            form.append("name", document.getElementById("name").value);
+            form.append("profile", document.getElementById("profile").files.item(0));
+
+            ajax.send(form);
+
+        }
+        document.getElementById("register").onclick = doLogin;
+    </script>
+</body>
+</html>

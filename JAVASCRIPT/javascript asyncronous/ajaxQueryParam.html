@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <label for="search">
+            search :
+            <input type="text" name="search" id="search">
+        </label>
+        <br>
+        <input type="button" id="button" value="search">
+    </form>
+    <h1 id="response"></h1>
+    <script>
+        // selain format JSON, kadang saat mengirim dan menggunakan AJAX, kita hanya mengirim dalam bentuk query parameter
+        // pada kasus ini kita bisa saja mengubah url nya dengan menambahkan query parameter, namun ada cara yang lebih mudah
+        // kita bisa menggunakan object URLSearchParam sebelum membuat url
+        function doLogin(){
+            const ajax = new XMLHttpRequest();
+
+            const param = new URLSearchParams();
+            param.append("search", document.getElementById("search").value);
+            param.append("value", document.getElementById("search").value);
+
+
+            ajax.open("GET",`https://eo8qojlg8u75ofm.m.pipedream.net?${param.toString()}`);
+            ajax.addEventListener("load", function(){
+                const response = document.getElementById("response");
+                response.innerText = ajax.responseText;
+                //console.log(ajax.responseText);
+            })
+            ajax.send();
+        }
+        document.getElementById("button").onclick = doLogin;
+    </script>
+</body>
+</html>

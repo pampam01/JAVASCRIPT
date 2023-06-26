@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajax</title>
+</head>
+<body>
+    <h1></h1>
+    <script>
+        // ajax adalah singkatan dari asyncronnous javascript dan XML
+        // biasanya digunakan untuk mengambil dan mengirim data ke URL lain
+        // untuk membuat ajax, kita bisa menggunakan class XMLHttpRequest
+
+        //
+        const ajax = new XMLHttpRequest();
+        ajax.open("GET", "api/hello.json");
+        ajax.addEventListener("load",function(){
+            const json = JSON.parse(ajax.responseText);
+            const header = document.querySelector("h1");
+            header.textContent = json.response;
+
+            const p = document.createElement("p");
+            const newText = document.createTextNode(json.user);
+            p.appendChild(newText);
+            //document.body.insertBefore(p, header); // memasukan element sebelum 
+            header.after(p); // memasukan element sesudahnya
+            
+        })
+
+        ajax.send();
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>query selector</title>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <ul>
+        <li class="menuItem">6</li>
+        <li id="menu2">7</li>
+        <li class="menuItem">8</li>
+    </ul>
+    <div class="eko"></div>
+    <div class="ekoKurniawan"></div>
+    <div class="ekoKhannedy"></div>
+    <script>
+        // query selector digunakan untuk menyeleksi node pertama saja yang sesuai dengan pola
+        // query selector all digunakan untuk menyeleksi semua node yang sesuai dengan pola
+
+        // UNIVERSAL SELECTOR
+        const elements = document.querySelectorAll('*'); // dapet semua
+        console.log(elements);
+
+        // TYPE SELECTOR
+        const list =document.querySelectorAll('ul>li');
+        console.log(list);
+
+        // CLASS SELECTOR
+        const classes = document.querySelectorAll('.menuItem');
+        console.log(classes);
+
+        // ID SELECTOR
+        const id = document.querySelector('#menu2');
+        console.log(id);
+
+        // ATTRIBUTE SELECTOR
+        const eko = document.querySelectorAll('[class]');
+        console.log(eko);
+
+        //OPERATOR DI SELECTOR
+        const eko2 = document.querySelectorAll('div[class=eko]');
+        console.log(eko2);
+        // previx
+        const previx = document.querySelectorAll('div[class^=eko]'); // semua element div yang awalan classnya eko
+        console.log(previx);
+        // sufix
+        const item = document.querySelectorAll('[class$=Item]'); // semua element yang akhiran classnya Item
+        console.log(item);
+        </script>
+</body>
+</html>

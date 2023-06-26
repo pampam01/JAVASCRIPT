@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attribute</title>
+</head>
+<body>
+
+    <img id="logo" src="./picture/iphone.jpg" alt="PZN logo">
+    <script>
+        // attribute hanya memiliki 2 sisi
+        // yaitu key and value
+        
+        const logo = document.getElementById('logo');
+        const src = logo.getAttribute("src");
+        //const src = logo.getAttributeNode("src");
+       // console.log(src.name);
+        //console.log(src.value);
+        console.log(src);
+    </script>
+</body>
+</html>

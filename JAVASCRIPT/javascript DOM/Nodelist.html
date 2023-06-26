@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nodelist</title>
+</head>
+<body>
+
+    <ul id="menu1">
+        <li id="frist">satu</li>
+        <li id="second">dua</li>
+        <li id="third">tiga</li>
+    </ul>
+
+    <ul id="menu2">
+        <li>pampam</li>
+        <li>prayitno</li>
+        <li>S.KOM</li>
+    </ul>
+    <script>
+        // nodelist adalah kumpulan dari node
+        //Biasanya Nodelist digunakan ketika kita menyeleksi banyak Node sekaligus, misal ketika kita ingin mengambil semua children diNode misalnya
+        // nodelist yaitu kumpulan dari node
+        let list = document.querySelectorAll('li');
+        console.log(list);
+
+        const list1 = document.getElementById('menu1').childNodes;
+        console.log(list1);
+
+        const list2 = document.getElementById('menu2').childNodes;
+        console.log(list2);
+
+        // nodes memiliki 2 tipe, yaitu live dan static
+        // live artinya perubahan yang terjadi pada Nodelist nya, akan merubah semua Nodelist yang sama
+        // static arttinya perubahan yang terjadi pada nodelistnya tidak akan merubah semua Nodelist yang sama
+        // saat kita menggunakan element childnodes, nodelist tersebut bersifat live
+        // saat kita menggunakan document.querySelectorAll(). nodelist tersebut bersifat static
+
+        // contoh Nodeist Live
+       let menu1 = document.getElementById('menu1');
+       let list3 = menu1.childNodes;
+
+       menu1.append(document.createElement('li'));
+       menu1.append(document.createElement('li'));
+
+       console.log(list3);
+
+
+    </script>
+</body>
+</html>

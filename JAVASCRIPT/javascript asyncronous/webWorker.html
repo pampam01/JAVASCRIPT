@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>web worker</title>
+</head>
+<body>
+    <button> click me</button>
+    <br>
+    <button id="btn-worker"> worker</button>
+    <script>
+        // THREAD DIJAVASCRIPT
+        // javascrippt adalah singgle thread(singgle proses),
+        // artinya walaupun proses yang kita buat adalah async, api tetap akan dijalankan dalam Thread(proses) yang sama
+        // kemampuan satu thread dalam mengelola beberapa pekerjaan dinamakan Concurrent
+        // kemampuan menjalankan  beberapa Thread untuk mengelola satu atau lebih pekerjaan dinamakan Pararel
+        // dan untuk membuat proses secara Pararel, kita bisa menggunakan Web Worker
+
+        // kasus proses lambat
+        function logs(total){
+            for(let i = 0; i< total; i++){
+                console.log(i);
+            }
+        }
+        document.getElementsByTagName("button")[0].addEventListener("click", function(){
+            console.log("start");
+            logs(100000);
+            console.log("end");
+        })
+        // tombol button akan hang dan tidak bisa dihover maupun di pencet, ini dikarenakan javascript yang singgle Thread sedang
+        // sibuk jadi tidak dapat melakukan hal lainnya 
+        // untuk mengatasi masalah ini, kita akan menggunakan web worker
+
+        // web worker adalah kemampuan yang untuk menjalankan proses di Thread yang berbeda dibanding main Thread
+        // keuntungan menggunakan web worker adalah, jika terdapat proses yang membutuhkan waktu lama,
+        // web  kita tidak akan freeze, karena proses tersebut bisa kita jalankan di Thread yang berbeda dari main thread(yang digunakan oleh UI)
+
+        // CARA MEMBUAT WORKER 
+        // untuk menggunakan web worker api, kita bisa menggunakan object worker
+        // saat menggunakan object worker , worker tidak langsung akan berjalan, kita harus memberikan perintah
+        // memberikan perintah dengan cara mengirim pesan
+        // untuk mengirim pesan, kita bisa gunakan method postMessage();
+        //sedangkan untuk menerima balasan dari worker, kita bisa menggunakan event listener onmessage
+        // data yang ditrima berupa objectMesssage event
+
+
+       const worker = new Worker("worker.js");
+       worker.addEventListener("message", function(message){
+            console.log(message.data);
+       })
+
+       
+       document.getElementById("btn-worker").addEventListener("click",function(){
+        worker.postMessage(1000000);
+       })
+    </script>
+</body>
+</html>

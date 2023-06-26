@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      
+    }
+
+    .container {
+      width: 200px;
+      height: 200px;
+      border: 1px solid #333;
+      transition: all 0.4s ease;
+      justify-self: center;
+      
+
+
+    }
+
+    input {
+      width: 200px;
+      margin-top: 5px;
+      justify-self: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+  </div>
+  <input type="text" />
+  <script>
+    let box = document.querySelector('.container');
+    let input = document.querySelector('input');
+
+    input.addEventListener('input', () => {
+      box.style.borderRadius = input.value;
+      box.style.background = input.value;
+    })
+  </script>
+</body>
+
+</html>

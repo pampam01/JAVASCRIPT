@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>node type</title>
+</head>
+<body>
+    eko Kurniawan
+    <!-- Hello world -->
+    <h1>ini title</h1>
+    <script>
+        // constant                      |value|    description
+        //Node.ELEMENT_NODE                 1       an Element node like <p> or <div>
+       // Node.ATTRIBUTE_NODE               2       an Attribute of an Element
+        //Node.TEXT_NODE                    3       the actual Text inside an Element or Attr
+        //Node.CDATA_SECTION_NODE           4       a CDATASection, such as <!DATA(e[ - ])>
+        //Node.PROCESSING_INSTRUCTION_NODE  7       a ProcessingInstruction of an XML document, such as <?xml-stylesheet _ ?>
+        //Node.COMMENT_NODE                 8       a comment node, such as <!-- -->
+        //Node.DOCUMENT_NODE                9       a Document node
+        //Node.DOCUMENT_TYPE_NODE           10      a DocumentType node, such as <!OCTYPE html>
+        //Node.DOCUMENT_FRAGMENT_NODE       11      a DocumentFragment node
+
+        const nodes = document.body.childNodes;
+        nodes.forEach(node => console.log(`${node} : ${node.nodeType}`));
+    </script>
+</body>
+</html>

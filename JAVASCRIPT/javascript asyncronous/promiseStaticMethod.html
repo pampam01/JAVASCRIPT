@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>promise static method</title>
+</head>
+<body>
+    <table>
+        <tbody>
+            <tr>
+                <td>id : </td>
+                <td id="id"></td>
+            </tr>
+            <tr>
+                <td>name : </td>
+                <td id="name"></td>
+            </tr>
+            <tr>
+                <td>price</td>
+                <td id="price"></td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        // promise juga memikiki beberapa static metthod
+        // promise.all() digunakan untuk mengeksekusi beberapa promise sekaligus dan menunggu semua hasil promise nya
+        //promise.any() digunakan un tuk meneksekusi beberapa promise sekaligus dan mengambiol hasil promise paling cepat
+        // prommise.race()
+        function getProduct(product){
+            return new Promise((resolve, reject)=>{
+                const ajax = new XMLHttpRequest();
+                ajax.open("GET", `./api/${product}.json`);
+                ajax.onload = function(){
+                    if(ajax.status === 200){
+                        resolve(ajax.responseText);
+                    }
+                    else{
+                        reject(`error with response : ${ajax.status}`)
+                    }
+                }
+                ajax.send();
+            })
+        }
+
+        const promises = Promise.all([
+            getProduct("product"),
+            getProduct("product2"),
+            getProduct("product3")
+        ]);
+        promises.then(products => console.log(products));
+        
+
+    </script>
+</body>
+</html>

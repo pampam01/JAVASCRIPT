@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>await</title>
+</head>
+<body>
+    <script>
+        // await digunakan untuk mendapatkan value hasil Prmise
+        // await hanya bisa digunakan dalam async function
+        function getProductName(){
+            return fetch("api/productsalah.json",{
+                method:"GET"
+            }).then(response => response.json())
+        }
+
+        getProductName().then(result => console.log(result));
+
+        function getProduct(){
+            return new Promise((resolve, reject)=>{
+                getProductName()
+                .then(product => resolve(product.name))
+                .catch(error => reject(console.log(` eror dengan pesan ${error.status}`)))
+            })
+        }
+
+        // ini cara yang lebih simpel
+        // pada async await kita bisa menggunakan try catch untuk melakukan penanganan error
+        async function getProductAsinc(){
+         try {
+            const product = await getProductName();
+            return product.name;
+         } catch (error) {
+            return "product not found";
+         } finally{
+            console.log("loading");
+         }
+        }
+
+        getProduct().then(response => console.log(response));
+        getProductAsinc().then(response => console.log(response));
+    </script>
+</body>
+</html>

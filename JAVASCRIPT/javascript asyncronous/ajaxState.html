@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajax</title>
+</head>
+<body>
+    <h1 id="response"></h1>
+    <script>
+        // ajax memiliki tahapan state, dimana kita bisa mendapatkan banyak sekali state di ajax menggunakan property readyState
+        // readyState mengembalikan nilai number yang tiap number memiliki arti
+        // VALUE    |STATE            |DESCRIPTION
+        //0         |UNSET            | client has been created. open() not yet     
+        //1         |OPENED           | open() has been called
+        //2         |HEADERS_REIVED   | send() has been called, and headerw and status are avaible
+        //3         |LOADING          | Downloaing: responseText hold partial data
+        //4         |DONE             | the operation is complete
+        
+        //readyStateChange digunakan untuk mendengarkan perubahan yang terjadi pada state
+
+        function displayAjax(json){
+            const header = document.querySelector("#response");
+            header.textContent = json.response;
+
+            const p = document.createElement("p");
+            const newText = document.createTextNode(json.user);
+            p.appendChild(newText);
+            //document.body.insertBefore(p, header); // memasukan element sebelum 
+            header.after(p); 
+        }
+        const ajax = new XMLHttpRequest();
+        ajax.open("GET", "api/hello.json");
+        ajax.addEventListener("readystatechange", function(){
+            console.log(`Ready state change ${ajax.readyState}`);
+        })
+        ajax.addEventListener("load",function(){
+            const json = JSON.parse(ajax.responseText);
+            console.log(json);
+            if(ajax.status === 200){
+                displayAjax(json);
+            }else{
+            displayAjax({response:`terjadi kesalahan dengan status ${ajax.status}`,user:"salah"});
+           }
+            // memasukan element sesudahnya
+            
+        });
+
+        ajax.send();
+    </script>
+</body>
+</html>

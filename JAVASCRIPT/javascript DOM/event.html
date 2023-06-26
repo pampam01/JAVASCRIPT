@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event </title>
+</head>
+<body>
+
+<h1 id="text">click yellow below</h1>
+<div id="canvas" style="width: 500px; height: 500px; background-color: yellow;"></div>
+    <script>
+        // dom memiliki banyak sekali event
+        // event ada play, click, mouseMove, form, gestrure, keyup,keydown, dan masih banyak lagi
+        const canvas = document.getElementById('canvas');
+        const text = document.getElementById('text');
+        canvas.addEventListener('click', function(event){
+            text.textContent = `kamu mengklick di kordinat (${event.x}, ${event.y}) `;
+        })
+    </script>
+</body>
+</html>

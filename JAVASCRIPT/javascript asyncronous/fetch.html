@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fetch</title> 
+</head>
+
+<body>
+    <form>
+        <label for="username">
+            Username :
+            <input type="text" name="username" id="username">
+        </label>
+        <br>
+        <label for="password">
+            password :
+            <input type="password" name="password" id="password">
+        </label>
+        <br>
+        <input type="button" id="login" value="Login">
+    </form>
+    <h1 id="response"></h1>
+    <script>
+        //fetch api sebagai pengganti dari ajax
+        // saat menggunakan ajax, kita perlu menggunakan callback untuk menerima response data dari server, sedangkan fetch api lebih-
+        // mudah dibandingkan ajax
+
+        // saat kita akan menggunakan fetch api, kita perlu membuat request menggunakan object Request
+        // input: url, init:konfigurasi(opional)
+        function doLogin() {
+            const request = new Request("https://eo8qojlg8u75ofm.m.pipedream.net", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+                body: JSON.stringify({
+                    username: document.getElementById('username').value,
+                    password: document.getElementById('password').value
+                })
+
+            });
+            // promise <Response>
+            const response = fetch(request);
+            response.then((response) => response.json())
+                .then(function (json) {
+                    return document.getElementById('response').textContent = json.success;
+                })
+                .catch(error => {
+                    return document.getElementById('response').textContent = error;
+                })
+        }
+        document.getElementById('login').onclick = doLogin;
+
+    </script>
+</body>
+
+</html>

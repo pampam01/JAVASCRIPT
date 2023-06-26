@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>voice speak</title>
+    <style>
+        body{
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+        }
+        textarea{
+            display: grid;
+            justify-self: center;
+        }
+        button{
+            display: grid;
+            justify-self: center;
+            margin-top: 10px;
+            width: 60px;
+            height: auto;
+            text-align: center;
+            border: 1px solid blue;
+            opacity: 1;
+            transition: opacity 0.35s;
+            background-color: blue;
+
+        }
+        button:active{
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <textarea name="" id="" cols="30" rows="10"></textarea>
+    <button>Speak</button>
+    <script>
+        let text = document.querySelector('textarea');
+        let button = document.querySelector('button');
+        button.addEventListener('click', ()=> {
+            let voice = new SpeechSynthesisUtterance(text.value);
+            speechSynthesis.speak(voice);
+        })
+    </script>
+</body>
+</html>

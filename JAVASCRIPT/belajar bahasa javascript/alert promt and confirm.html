@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>alert prompt and confirm</title>
+</head>
+
+<body>
+  <script>
+    //alert(" hati- hati");
+    //let name = prompt(" siapa nama anda ?");
+    //alert(` halo ${name}`);
+
+    const masuk = confirm("apakah anda ingin masuk ?");
+    if (masuk) {
+      let input = prompt("masukkan nama anda");
+      alert(` halo ${input}`);
+    } else {
+      alert(` bye-bye`)
+    }
+  </script>
+</body>
+
+</html>

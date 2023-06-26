@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>style </title>
+</head>
+<body>
+    <input type="button" value="blue">
+    <input type="button" value="red">
+    <input type="button" value="yellow">
+    <input type="button" value="black">
+    <div id="canvas" style="width: 500px; height: 500px; background-color: black;"></div>
+    <script>
+        // DOM juga bisa digunakan untuk memanipulasi attribute style pada elemen dengan mudah
+        // pada DOM style, menggunakan format camelCase
+        const canvas = document.getElementById('canvas');
+        const buttons = document.querySelectorAll('input[type=button]');
+        for(const btn of buttons){
+            btn.addEventListener("click",function(){
+                canvas.style.backgroundColor = btn.getAttribute('value');
+            })
+        }
+        
+    </script>
+</body>
+</html>
